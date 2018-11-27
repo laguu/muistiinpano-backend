@@ -1,0 +1,7 @@
+PUT http://localhost:3001/api/notes/5bfaaeecd5fc25529c67ecf0 HTTP/1.1
+content-type: application/json
+
+{
+  "content": "VS Coden REST client on paras!!!!!!!!!!!!!!!!!!!!!",
+  "important": false
+}

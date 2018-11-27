@@ -1,7 +1,10 @@
+// ei kuulu enää ohjelmaan !
+//
+
 const mongoose = require('mongoose')
 
 // korvaa url oman tietokantasi urlilla. ethän laita salasanaa Githubiin!
-const url = 'mongodb://s:t@ds157528.mlab.com:57528/muistiinpano'
+const url = 'mongodb://seppo:taalasmaa1@ds157528.mlab.com:57528/muistiinpano'
 
 mongoose.connect(url)
 
@@ -10,16 +13,25 @@ const Note = mongoose.model('Note', {
   date: Date,
   important: Boolean
 })
-
+/*
 const note = new Note({
-  content: 'HTML on helppoa',
+  content: 'Selain pystyy suorittamaan vain javascriptiä',
   date: new Date(),
   important: true
 })
 
 note
-  .save()
+  .save() // tallentaa tietokantaa, palauttaa promisen
   .then(response => {
     console.log('note saved!')
+    mongoose.connection.close()
+  })
+*/
+Note
+  .find({})
+  .then(result => {
+    result.forEach(note => {
+      console.log(note)
+    })
     mongoose.connection.close()
   })
